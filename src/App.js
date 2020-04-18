@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import AppRouter from "./router/router";
+import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import { CssBaseline } from "@material-ui/core";
+import { connect } from "react-redux";
+import { setTheme } from "./Js/actions/actions";
+import styles from "./app.module.scss";
 
-function App() {
+function App({ theme }) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MuiThemeProvider theme={createMuiTheme({ palette: { type: theme } })}>
+      <CssBaseline />
+      <div className={styles.app}>
+        <AppRouter />
+      </div>
+    </MuiThemeProvider>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    theme: state.rootReducer.theme,
+  };
+};
+
+export default connect(mapStateToProps, { setTheme })(App);
