@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server/server.js",
-    "server": "nodemon server/server.js",
-    "client": "npm run start --prefix client",
+    "server": "cd server && npm start",
+    "client": "cd client && npm start",
     "dev": "concurrently \"npm run server\" \"npm run start --prefix client\""
   },
   "repository": {
@@ -24,9 +24,5 @@
     "concurrently": "^5.1.0",
     "nodemon": "^2.0.3"
   },
-  "dependencies": {
-    "config": "^3.3.1",
-    "gravatar": "^1.8.0",
-    "mongoose": "^5.9.9"
-  }
+  "dependencies": {}
 }

@@ -1,5 +1,5 @@
 const express = require('express');
-const connectDB = require('../config/db');
+const connectDB = require('./config/db');
 // const path = require ('path'); 
 // const bodyParser = require('body-parser');
 
@@ -18,7 +18,7 @@ connectDB();
 // app.use(bodyParser.json());
 
 //DB Config
-const db = require('../config/default').mongoURI;  
+const db = require('./config/default').mongoURI;  
 
 //Init Middleware
 app.use(express.json({ extended: false}));

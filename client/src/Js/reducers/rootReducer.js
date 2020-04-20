@@ -1,11 +1,11 @@
-import { SETTHEME } from "../Constants/actionsTypes";
+import { SET_THEME } from "../Constants/actionsTypes";
 const initState = {
   theme: "light",
 };
 
 const rootReducer = (state = initState, { type, theme }) => {
   switch (type) {
-    case SETTHEME:
+    case SET_THEME:
       return {
         ...state,
         theme: theme,
