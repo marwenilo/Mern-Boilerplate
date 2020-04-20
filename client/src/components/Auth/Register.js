@@ -6,6 +6,7 @@ import { register } from '../../Js/actions/authAction';
 import PropTypes from 'prop-types';
 
 const Register = ({register, isAuthenticated }) => {
+  const classes = useStyles();
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -29,6 +30,7 @@ const Register = ({register, isAuthenticated }) => {
   };
 
   if (isAuthenticated) {
+    console.log(isAuthenticated)
     return <Redirect to='/test' />;
   }
 
