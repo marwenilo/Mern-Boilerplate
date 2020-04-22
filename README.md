@@ -3,21 +3,21 @@
 
 **Personal minimalistic MERN BoilerPlate with auth**
 
-**Techonologies :** 
+**Techonologies :**
+
+*React* - as a Frontend Framework .
+
+*Redux* - for state Management .
+
+*Node* - as a Server .
+
+*Express* - as a backend Framework .
 
 *MongoDb and Mongoose*
 
 - MongoDb as a Database and mongoose as as a Object Data .
 
 - Modeling library for MongoDB and Node.js .
-
-*Express* - as a backend Framework .
-
-*React* - as a Frontend Framework .
-
-*Node* - as a Server .
-
-*Redux* - for state Management .
 
 *JsonWebToken* - for creating JSON-based access tokens .
 
