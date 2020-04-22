@@ -18,8 +18,8 @@ const SimpleAlerts = ({ alerts }) => {
   const alert =
     alerts !== null &&
     alerts.length > 0 &&
-    alerts.map((alert) => (
-      <div className={classes.root}>
+    alerts.map((alert,key) => (
+      <div key = {key} className={classes.root}>
         <Alert variant="filled" severity="error" key={alert.id}>
           {alert.msg}
         </Alert>
@@ -28,7 +28,7 @@ const SimpleAlerts = ({ alerts }) => {
   return alert;
 };
 Alert.propTypes = {
-  alerts: PropTypes.array.isRequired,
+  alerts: PropTypes.array,
 };
 
 const mapStateToProps = (state) => ({
