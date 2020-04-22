@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { register } from '../../../Js/actions/authAction';
+import { setAlert } from '../../../Js/actions/alertAction';
 import PropTypes from 'prop-types';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -50,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Register = ({register, isAuthenticated }) => {
+const Register = ({register, isAuthenticated,setAlert }) => {
     const classes = useStyles();
     const [formData, setFormData] = useState({
       firstName: '',
@@ -68,7 +69,7 @@ const Register = ({register, isAuthenticated }) => {
     const onSubmit = async e => {
       e.preventDefault();
       if (password !== password2) {
-        console.log('Passwords do not match', 'danger');
+        setAlert('Passwords do not match', 'danger');
       } else {
         register({ firstName,lastName, email, password });
       }
@@ -80,6 +81,7 @@ const Register = ({register, isAuthenticated }) => {
     }
 
   return (
+
     <Container component="main" maxWidth="xs" onSubmit={e => onSubmit(e)}>
       <CssBaseline />
       <div className={classes.paper}>
@@ -192,7 +194,7 @@ const Register = ({register, isAuthenticated }) => {
 }
 
 Register.propTypes = {
-
+    setAlert: PropTypes.func.isRequired,
     register: PropTypes.func.isRequired,
     isAuthenticated: PropTypes.bool
   };
@@ -203,5 +205,5 @@ Register.propTypes = {
   
   export default connect(
     mapStateToProps,
-    { register }
+    { register,setAlert }
   )(Register);
